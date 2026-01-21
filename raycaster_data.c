@@ -1,6 +1,12 @@
 #include <stdint.h>
 #include "raycaster.h"
 
+/**
+ * World Map Data.
+ * 32x32 grid packed into bits.
+ * Rows are 32 bits wide (4 bytes).
+ * 1 = Wall, 0 = Empty.
+ */
 const uint8_t LOOKUP_TBL g_map[] = {
     0b00000000, 0b10000000, 0b00000000, 0b00000000, 0b01111010, 0b10111111,
     0b11111111, 0b00000000, 0b00111000, 0b10100000, 0b00001000, 0b01001100,
@@ -30,6 +36,11 @@ const uint8_t LOOKUP_TBL g_map[] = {
     0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000,
     0b00000000, 0b00000000};
 
+/**
+ * Texture Atlas / Single Texture.
+ * 64x64 pixels, 32-bit ARGB.
+ * 4096 pixels total.
+ */
 const uint32_t LOOKUP_TBL g_texture32[4096] = {
     0xff303538, 0xff292e31, 0xff343a3f, 0xff191f26, 0xff323942, 0xff4a515a,
     0xff515a64, 0xff4b545e, 0xff38414e, 0xff3f4855, 0xff414a58, 0xff47505e,
@@ -715,6 +726,10 @@ const uint32_t LOOKUP_TBL g_texture32[4096] = {
     0xff151d2a, 0xff323a47, 0xff3e4653, 0xff38404d, 0xff2d3640, 0xff1f2832,
     0xff333c45, 0xff3b444d, 0xff3c444b, 0xff2e363d};
 
+/**
+ * Bitmap Font Data.
+ * 128 characters, 16 bytes per character.
+ */
 const uint8_t LOOKUP_TBL g_font[128][16] = {
     {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
      0x00, 0x00, 0x00, 0x00},
